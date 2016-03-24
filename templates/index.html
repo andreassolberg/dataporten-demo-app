@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{{title}}</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+	  <div class="container">
+
+
+			<div class="jumbotron">
+				<h1>{{title}}</h1>
+				
+
+
+				{{#user}}
+					<p class="lead">You are logged in as {{user.data.displayName}}.</p>
+				  	<p><a href="/logout" class="btn btn-primary">Logout</a></p>
+				{{/user}}
+				{{^user}}
+				  	<p class="lead">You are not logged in.</p>
+				  	<p><a href="/login" class="btn btn-primary">Login</a></p>
+				{{/user}}
+
+				<p><a href="/protected/one">Protected page (only for admins)</a></p>
+
+
+			</div>
+
+
+			{{#user}}
+				<div class="media">
+				  <div class="media-left">
+				    <a href="#">
+				    	{{#user.data.photos}}
+					      <img class="media-object" class="img-responsive img-thumbnail" style="max-height: 64px" src="{{.}}" alt="profile photo">
+				    	{{/user.data.photos}}
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading">{{user.data.displayName}}</h4>
+				    <p><code>{{user.data.id}}</code></p>
+				  </div>
+				</div>
+			{{/user}}
+
+
+
+			<h2>Groups</h2>
+			<ul class="list-group" style="margin-top: 1em">
+
+				{{#groups}}
+					<li class="list-group-item">
+						<h3>{{displayName}}</h3>
+						<span class="badge">{{type}}</span>
+						<p><code>{{id}}</code></p>
+						
+					</li>
+				{{/groups}}
+
+
+			</ul>
+
+			
+
+	<!--
+		  <div class="row marketing">
+			<div class="col-lg-6">
+			  <h4>Subheading</h4>
+			  <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+			  <h4>Subheading</h4>
+			  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+			  <h4>Subheading</h4>
+			  <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
+
+			<div class="col-lg-6">
+			  <h4>Subheading</h4>
+			  <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+			  <h4>Subheading</h4>
+			  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+			  <h4>Subheading</h4>
+			  <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
+		  </div>
+	-->
+		  <footer class="footer">
+			<p>2016 &copy; Authentication and authorization <a href="http://dataporten.no">by Dataporten</a></p>
+		  </footer>
+
+		</div> <!-- /container -->
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	</body>
+</html>
