@@ -16,6 +16,7 @@
     "express-session": "^1.13.0",
     "morgan": "^1.7.0",
     "mustache-express": "^1.2.2",
+    "passport-dataporten": "^1.0.0",
     "request": "^2.69.0"
   }
 }
